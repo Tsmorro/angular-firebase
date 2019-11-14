@@ -44,3 +44,5 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+/src/app/home/json-to-firestore.js
+/src/app/home/jsontofirestore

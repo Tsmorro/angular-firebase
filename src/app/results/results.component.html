@@ -1,0 +1,69 @@
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
+    <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>
+
+
+<div class="header">
+    <a class="logo">User Results Page</a>
+    <div class="header-right">
+        <a href="http://utility.materialinmotion.com/">Home</a>
+        <a class="active">My Results</a>
+    </div>
+</div>
+
+
+<form>
+    <input type="text" id="userid" [(ngModel)]="userId" name="userid" placeholder="Enter your userid">
+    <button class="button button1" (click)="quizresultslist()">SUBMIT</button>
+</form>
+
+
+<div *ngIf="visible">
+    <div class="card">
+        <h1> Employee Name: {{empName}}</h1>
+        <p class="title">Employee Status: {{empStatus}}</p>
+        <p></p>
+        <div style="margin: 24px 0;">
+            <a><i class="fa fa-dribbble"></i></a>
+            <a><i class="fa fa-twitter"></i></a>
+            <a><i class="fa fa-linkedin"></i></a>
+            <a><i class="fa fa-facebook"></i></a>
+        </div>
+    </div>
+
+
+
+
+
+    <mat-accordion>
+        <mat-expansion-panel *ngFor="let results of userResults">
+            <mat-expansion-panel-header *ngIf="results.TestTurn == 1" (click)="toggle(results.cert_type)">
+                <mat-panel-title>
+                    {{results.cert_type}}
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div>
+                <table id="customers">
+                    <tr>
+                        <th>Date</th>
+                        <th>Pass Score</th>
+                        <th>Your Score</th>
+                        <th>Expired</th>
+                        <th>Expiry Date</th>
+                        <th>certificate name</th>
+                    </tr>
+                    <tr *ngFor="let result of tableResults">
+                        <td>{{result.create_date}}</td>
+                        <td>{{result.pass_score}}</td>
+                        <td>{{result.user_score}}</td>
+                        <td [ngStyle]="{'background-color':result.expired == 'N'  ? 'Green' : 'Red' }">{{result.expired}}</td>
+                        <td>{{result.qual_date}}</td>
+                        <td>{{result.cert_type}}</td>
+                    </tr>
+                </table>
+            </div>
+        </mat-expansion-panel>
+
+    </mat-accordion>
+
+</div>

@@ -1,0 +1,348 @@
+.headdisplay {
+    background-color: #E5E5E5;
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    overflow: hidden;
+}
+
+img.hero {
+    position: relative;
+    width: 100% !important;
+    bottom: -10px;
+}
+
+img.portal {
+    position: absolute;
+    left: 75px;
+    bottom: 20px;
+}
+
+img.pathTitle {
+    position: absolute;
+    bottom: 20px;
+    left: -250px;
+}
+
+h6 {
+    font-family: Arial;
+    font-weight: 300;
+}
+
+div.catGrid {
+    margin: 20px;
+}
+
+.mat-grid-tile.pathTiles .mat-figure {
+    top: 0;
+    display: flex !important;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+mat-grid-tile {
+    margin: 40px;
+}
+
+.mat-grid-tile.pathTiles {
+    max-width: 25%;
+}
+
+.bodydisplay {
+    margin-top: 2%;
+}
+
+div.bodydisplay {
+    padding: 0px 60px 0px 0px;
+}
+
+img.logo {
+    width: 30%;
+}
+
+span.menuLine {
+    width: 100%;
+    height: 4px;
+    margin: 4px auto;
+    display: block;
+    background: #fff !important;
+    transition: all 0.8s cubic-bezier(0.81, -0.33, 0.345, 1.375);
+}
+
+img.tileImgs {
+    max-width: 80%;
+}
+
+.sidenav-button {
+    margin-left: -10px;
+}
+
+.sidenav-container {
+    position: static;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    min-height: 100%;
+    width: 60px;
+    z-index: 101;
+    overflow: hidden;
+    transform: scale(1);
+    background: #FFFFFF;
+}
+
+.sidenav {
+    position: sticky !important;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background: #0B2757;
+    /* background: -moz-linear-gradient(-45deg, #003385 0%, #003385 58%, #000000 100%);
+background: -webkit-gradient(left top, right bottom, color-stop(0%, #003385), color-stop(58%, #003385), color-stop(100%, #000000));
+background: -webkit-linear-gradient(-45deg, #003385 0%, #003385 58%, #000000 100%);
+background: -o-linear-gradient(-45deg, #003385 0%, #003385 58%, #000000 100%);
+background: -ms-linear-gradient(-45deg, #003385 0%, #003385 58%, #000000 100%);
+background: linear-gradient(135deg, #003385 0%, #003385 58%, #000000 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#003385', endColorstr='#000000', GradientType=1 ); */
+}
+
+button.menu {
+    border: 0;
+    border-radius: 0;
+    height: 70px;
+    max-width: 80px;
+    font-family: inherit;
+    font-style: inherit;
+    font-variant: inherit;
+    line-height: 1;
+    text-transform: none;
+    -webkit-appearance: button;
+    display: block;
+    padding-left: 25px;
+    padding-right: 10px;
+    width: 40px;
+}
+
+path {
+    fill: white !important;
+}
+
+.mat-icon-button {
+    padding-left: 40px;
+}
+
+mat-sidenav-content {
+    top: -100px;
+    position: relative;
+    background: white;
+}
+
+button.sidenav_button.list-button.mat-button {
+    padding-left: 15px;
+    margin-top: 70px;
+}
+
+button.sidenav_button {
+    padding-top: 30px;
+    padding-left: 15px;
+}
+
+.mat-drawer-content {
+    overflow: hidden;
+}
+
+mat-sidenav-content {
+    overflow: auto;
+    position: relative;
+    top: -100px;
+}
+
+mat-icon.mat-icon {
+    width: 100%;
+    max-width: 40px;
+    height: 40%;
+    max-height: 60px;
+    padding-left: 4px;
+}
+
+button.mat-button {
+    font-size: 20px !important;
+}
+
+span.portaltext,
+span.resultstext {
+    padding-left: 20px;
+}
+
+mat-grid-list.mat-grid-list {
+    overflow: visible;
+    height: 1000px !important;
+    position: relative;
+}
+
+mat-grid-tile.pathTiles {
+    background: linear-gradient(243.22deg, rgba(28, 39, 57, 0.9) -1.01%, #003082 102.09%);
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    margin: 0px 40px;
+    top: 0;
+    display: flex !important;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: Arial, Arial, sans-serif;
+    margin: 0;
+}
+
+.basic-container {
+    padding: 30px;
+}
+
+.version-info {
+    font-size: 20pt;
+    float: right;
+}
+
+mat-grid-tile.text .mat-figure {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    display: contents !important;
+    align-items: flex-end !important;
+    justify-content: center;
+    height: 100%;
+    padding: 0;
+    margin: 0px 30px;
+    font-family: Arial, Arial, Arial !important;
+    font-size: 16px
+}
+
+mat-grid-tile.pathTiles {
+    background: linear-gradient(243.22deg, rgba(28, 39, 57, 0.9) -1.01%, #003082 102.09%);
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    margin: 0px 40px;
+    top: 0;
+    display: flex !important;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+mat-grid-tile.text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px !important;
+}
+
+
+/* img.hero {
+    position: relative;
+    top: 100px;
+    overflow: hidden;
+} */
+
+h3 {
+    color: black;
+}
+
+h6 {
+    color: black;
+    font-size: 18px;
+    margin: 10px;
+}
+
+.certGrid {
+    display: flex;
+    justify-content: flex-end;
+}
+
+mat-card {
+    padding: 30px;
+}
+
+mat-grid-tile.back figure.mat-figure {
+    display: flex;
+    justify-content: flex-end;
+}
+
+p {
+    font-size: 1rem;
+    font-family: Arial, Arial, sans-serif;
+    margin: 0px;
+}
+
+mat-grid-tile.back figure.mat-figure {
+    display: flex;
+    justify-content: flex-end;
+}
+
+blockquote {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 1rem;
+    font-family: Arial, Arial, sans-serif;
+}
+
+.mat-grid-tile.certs .mat-figure {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    line-height: 24px;
+}
+
+button.certButton {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 4px grey;
+    border: none;
+    background: #0B2757;
+    color: white;
+    font-weight: bold;
+}
+
+div.catGrid {
+    margin-left: 40px;
+}

@@ -1,0 +1,18 @@
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
+    <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>
+
+
+<div class="header">
+    <a class="logo">User Results Page</a>
+    <div class="header-right">
+        <a href="http://utility.materialinmotion.com/">Home</a>
+        <a class="active">My Results</a>
+    </div>
+</div>
+
+
+<form>
+    <input type="text" id="userid" [(ngModel)]="userId" name="userid" placeholder="Enter your userid">
+    <button class="button button1" (click)="quizresultslist()">SUBMIT</button>
+</form>
