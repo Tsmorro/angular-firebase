@@ -46,11 +46,11 @@
     </div>
 </div>
 
-<div *ngIf="currentpath">
+<div *ngIf="!currentpaths">
 
     <div class="bodydisplay">
 
-        <mat-grid-list cols="10" rowHeight="40px" [gutterSize]="'40px'">
+        <mat-grid-list cols="12" rowHeight="40px" [gutterSize]="'40px'">
 
             <mat-grid-tile class="text" [colspan]="4" [rowspan]="8">
                 <img class="logo" src="../../assets/MIMlogo2.png" />
@@ -67,16 +67,14 @@
                 <p class="primary-text-color"> Please see a member of staff if you have problems with the certifipathions. Let’s get started!</p>
 
             </mat-grid-tile>
-            <mat-grid-tile [colspan]="1" [rowspan]="12">
-                &nbsp;
-            </mat-grid-tile>
+            
             <div class="certGrid">
                 <button mat-icon-button (click)="selectPaths()" (click)="upDown()" (click)="inOut()" clear>
 
                                     <mat-icon svgIcon="arrow-left"></mat-icon>Back</button>
-                <div *ngIf="path.certTypes.length>0">
-                    <div *ngFor="let certType of path.certTypes">
-                        <mat-grid-tile class="certs" [colspan]="3" [rowspan]="6">
+                <div *ngIf="certTypes">
+                    <div *ngFor="let certType of certTypes">
+                        <mat-grid-tile class="certs" [colspan]="4" [rowspan]="6">
 
                             <mat-card class="pathTiles mat-elevation-z4" style="background: white;">
                                 <mat-card-title>
@@ -84,10 +82,10 @@
                                 </mat-card-title>
                                 <mat-card-content>
                                     <ul>
-                                        <div *ngIf="paths.certTypes.certs.length>0">
-                                            <div *ngFor="let cert of paths.certTypes.certs">
-                                                <li><button class="certButton">{{cert.module}}</button>
-                                                    <h6>{{cert.certTitles}}</h6>
+                                        <div *ngIf="generalCerts">
+                                            <div *ngFor="let generalCert of generalCerts">
+                                                <li><button class="certButton">{{generalCert.module}}</button>
+                                                    <a class="certLink" href="{{generalCert.link}}">{{generalCert.topic}}</a>
                                                 </li>
                                             </div>
                                         </div>

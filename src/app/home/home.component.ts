@@ -26,8 +26,8 @@ import { Observable } from 'rxjs';
   ]
 })
 export class HomeComponent implements OnInit {
-  cert: any;
-  certs: any;
+  generalCert: any;
+  generalCerts: any;
   certType: any;
   certTypes: any;
   path: any;
@@ -35,12 +35,12 @@ export class HomeComponent implements OnInit {
   pathImg = '';
   constructor(private router: Router, private db: AngularFirestore,  private training: TrainingService) { }
   pathsRef: AngularFirestoreCollection<Path[]> = this.db.collection('paths');
-  certsRef: AngularFirestoreCollection<Cert[]> = this.db.collection('certs');
+  certsGeneralRef: AngularFirestoreCollection<Cert[]> = this.db.collection('certTypes').doc('General').collection('certs');
   certTypesRef: AngularFirestoreCollection<CertType[]> = this.db.collection('certTypes');
 
   pathsCollection$: Observable<any> = this.pathsRef.valueChanges();
   
-  certsCollection$: Observable<any> = this.certsRef.valueChanges();
+  certsGeneralCollection$: Observable<any> = this.certsGeneralRef.valueChanges();
   certTypeCollection$: Observable<any> = this.certTypesRef.valueChanges();
 
   pathsDoc$: Observable<any>;
@@ -58,9 +58,10 @@ export class HomeComponent implements OnInit {
     this.portalText = 'down';
     this.pathHero = 'out';
     this.getPaths();
-    this.getCerts();
+    this.getCertTypes();
+    this.getGeneralCerts();
     console.log(this.paths);
-    console.log(this.certs);
+    console.log(this.generalCerts);
     console.log(this.certTypes);
   }
   getPaths() {
@@ -69,15 +70,16 @@ export class HomeComponent implements OnInit {
        this.paths = data;
        return data; });
     }
-    getCerts() {
-      this.certsCollection$.subscribe(data => {
+    getGeneralCerts() {
+      this.certsGeneralCollection$.subscribe(data => {
          console.log(data);
-         this.certs = data;
+         this.generalCerts = data;
          return data; });
       }
       getCertTypes() {
         this.certTypeCollection$.subscribe(data => {
            console.log(data);
+           this.certTypes = data;
            return data; });
         }
   changeState() {
@@ -91,11 +93,11 @@ export class HomeComponent implements OnInit {
   }
   selectPath(path) {
     this.pathImg = path;
-    this.currentPath = true;
+  
     this.currentPaths = false;
 }
-selectTiles() {
-    this.currentPath = false;
+selectPaths() {
+   
     this.currentPaths = true;
   }
 }
