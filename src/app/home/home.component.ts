@@ -28,6 +28,12 @@ import { Observable } from 'rxjs';
 export class HomeComponent implements OnInit {
   generalCert: any;
   generalCerts: any;
+  manufacturingCert: any;
+  manufacturingCerts: any;
+  learningCert: any;
+  learningCerts: any;
+  specialtyCert: any;
+  specialtyCerts: any;
   certType: any;
   certTypes: any;
   path: any;
@@ -35,13 +41,18 @@ export class HomeComponent implements OnInit {
   pathImg = '';
   constructor(private router: Router, private db: AngularFirestore,  private training: TrainingService) { }
   pathsRef: AngularFirestoreCollection<Path[]> = this.db.collection('paths');
-  certsGeneralRef: AngularFirestoreCollection<Cert[]> = this.db.collection('certTypes').doc('General').collection('certs');
-  certTypesRef: AngularFirestoreCollection<CertType[]> = this.db.collection('certTypes');
+  certsGeneralRef: AngularFirestoreCollection<Cert[]>;
+  certsManufacturingRef: AngularFirestoreCollection<Cert[]>;
+  certsLearningRef: AngularFirestoreCollection<Cert[]>;
+  certsSpecialtyRef: AngularFirestoreCollection<Cert[]>;
+  certTypesRef: AngularFirestoreCollection<CertType[]>; 
 
   pathsCollection$: Observable<any> = this.pathsRef.valueChanges();
-  
-  certsGeneralCollection$: Observable<any> = this.certsGeneralRef.valueChanges();
-  certTypeCollection$: Observable<any> = this.certTypesRef.valueChanges();
+  certsGeneralCollection$: Observable<any>;
+  certsManufacturingCollection$: Observable<any>;
+  certsLearningCollection$: Observable<any>;
+  certsSpecialtyCollection$: Observable<any>;
+  certTypeCollection$: Observable<any>;
 
   pathsDoc$: Observable<any>;
   certsDoc$: Observable<any>;
@@ -58,7 +69,6 @@ export class HomeComponent implements OnInit {
     this.portalText = 'down';
     this.pathHero = 'out';
     this.getPaths();
-    this.getCertTypes();
     this.getGeneralCerts();
     console.log(this.paths);
     console.log(this.generalCerts);
@@ -76,12 +86,30 @@ export class HomeComponent implements OnInit {
          this.generalCerts = data;
          return data; });
       }
+      getManufacturingCerts() {
+        this.certsManufacturingCollection$.subscribe(data => {
+           console.log(data);
+           this.manufacturingCerts = data;
+           return data; });
+        }
+        getLearningCerts() {
+          this.certsLearningCollection$.subscribe(data => {
+             console.log(data);
+             this.learningCerts = data;
+             return data; });
+          }
+          getSpecialtyCerts() {
+            this.certsSpecialtyCollection$.subscribe(data => {
+               console.log(data);
+               this.specialtyCerts = data;
+               return data; });
+            }
       getCertTypes() {
         this.certTypeCollection$.subscribe(data => {
            console.log(data);
            this.certTypes = data;
            return data; });
-        }
+          }
   changeState() {
     this.currentState = this.currentState === 'state1' ? 'state2' : 'state1';
   }
@@ -92,12 +120,24 @@ export class HomeComponent implements OnInit {
     this.pathHero = this.pathHero === 'out' ? 'in' : 'out';
   }
   selectPath(path) {
-    this.pathImg = path;
-  
+    this.certTypesRef = this.db.collection('paths').doc(path).collection('certTypes');
+    this.certTypeCollection$ = this.certTypesRef.valueChanges();
+    this.getCertTypes();
+    this.certsGeneralRef = this.db.collection('paths').doc(path).collection('certTypes').doc('General').collection('certs');
+    this.certsManufacturingRef = this.db.collection('paths').doc(path).collection('certTypes').doc('Manufacturing').collection('certs');
+    this.certsLearningRef = this.db.collection('paths').doc(path).collection('certTypes').doc('Learning').collection('certs');
+    this.certsSpecialtyRef = this.db.collection('paths').doc(path).collection('certTypes').doc('Specialty').collection('certs');
+    this.certsGeneralCollection$ = this.certsGeneralRef.valueChanges();
+    this.certsManufacturingCollection$ = this.certsManufacturingRef.valueChanges();
+    this.certsLearningCollection$ = this.certsLearningRef.valueChanges();
+    this.certsSpecialtyCollection$ = this.certsSpecialtyRef.valueChanges();
+    this.getGeneralCerts();
+    this.getLearningCerts();
+    this.getManufacturingCerts();
+    this.getSpecialtyCerts();
     this.currentPaths = false;
 }
 selectPaths() {
-   
     this.currentPaths = true;
   }
 }

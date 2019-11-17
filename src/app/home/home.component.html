@@ -32,7 +32,7 @@
             </mat-grid-tile>
             <div class="pathGrid" *ngFor="let path of paths">
 
-                <mat-grid-tile class="pathTiles" (click)="selectPath(path.img)" (click)="upDown()" (click)="inOut()" [colspan]="3" [rowspan]="3">
+                <mat-grid-tile class="pathTiles" (click)='selectPath(path.name)' [ngValue]="path" (click)="upDown()" (click)="inOut()" [colspan]="3" [rowspan]="3">
                     <img class="tileImgs" src="{{path.img}}" />
                 </mat-grid-tile>
 
@@ -83,6 +83,27 @@
                                 <mat-card-content>
                                     <ul>
                                         <div *ngIf="generalCerts">
+                                            <div *ngFor="let generalCert of generalCerts">
+                                                <li><button class="certButton">{{generalCert.module}}</button>
+                                                    <a class="certLink" href="{{generalCert.link}}">{{generalCert.topic}}</a>
+                                                </li>
+                                            </div>
+                                        </div>
+                                        <div *ngIf="manufacturingCerts">
+                                            <div *ngFor="let generalCert of generalCerts">
+                                                <li><button class="certButton">{{generalCert.module}}</button>
+                                                    <a class="certLink" href="{{generalCert.link}}">{{generalCert.topic}}</a>
+                                                </li>
+                                            </div>
+                                        </div>
+                                        <div *ngIf="specialtyCerts">
+                                            <div *ngFor="let generalCert of generalCerts">
+                                                <li><button class="certButton">{{generalCert.module}}</button>
+                                                    <a class="certLink" href="{{generalCert.link}}">{{generalCert.topic}}</a>
+                                                </li>
+                                            </div>
+                                        </div>
+                                        <div *ngIf="learningCerts">
                                             <div *ngFor="let generalCert of generalCerts">
                                                 <li><button class="certButton">{{generalCert.module}}</button>
                                                     <a class="certLink" href="{{generalCert.link}}">{{generalCert.topic}}</a>

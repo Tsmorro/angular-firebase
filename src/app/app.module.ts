@@ -12,10 +12,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { AuthGuard } from './guards/authguard';
 import { TrainingService } from './services/training.service';
 import { MaterialModule } from './material-module';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatIconRegistry } from '@angular/material';
 import { environment } from 'src/environments/environment';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ import { environment } from 'src/environments/environment';
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
+    FlexLayoutModule,
     ReactiveFormsModule,
     NgxSpinnerModule,
     AppRoutingModule,
