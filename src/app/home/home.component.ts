@@ -27,13 +27,13 @@ import { Observable } from 'rxjs';
 })
 export class HomeComponent implements OnInit {
   generalCert: any;
-  generalCerts: any;
+  generalCerts: null;
   manufacturingCert: any;
-  manufacturingCerts: any;
+  manufacturingCerts: null;
   learningCert: any;
-  learningCerts: any;
+  learningCerts: null;
   specialtyCert: any;
-  specialtyCerts: any;
+  specialtyCerts: null;
   certType: any;
   certTypes: any;
   path: any;
@@ -60,7 +60,7 @@ export class HomeComponent implements OnInit {
   currentState = '';
   currentShown = '';
   currentPaths = true;
-  currentPath = false;
+  currentCertType = false;
   portalText = '';
   pathHero = '';
   ngOnInit() {
@@ -69,7 +69,6 @@ export class HomeComponent implements OnInit {
     this.portalText = 'down';
     this.pathHero = 'out';
     this.getPaths();
-    this.getGeneralCerts();
     console.log(this.paths);
     console.log(this.generalCerts);
     console.log(this.certTypes);
@@ -104,6 +103,9 @@ export class HomeComponent implements OnInit {
                this.specialtyCerts = data;
                return data; });
             }
+      pathImage(path){
+        this.pathImg = path;
+      }
       getCertTypes() {
         this.certTypeCollection$.subscribe(data => {
            console.log(data);
@@ -125,7 +127,7 @@ export class HomeComponent implements OnInit {
     this.getCertTypes();
     this.certsGeneralRef = this.db.collection('paths').doc(path).collection('certTypes').doc('General').collection('certs');
     this.certsManufacturingRef = this.db.collection('paths').doc(path).collection('certTypes').doc('Manufacturing').collection('certs');
-    this.certsLearningRef = this.db.collection('paths').doc(path).collection('certTypes').doc('Learning').collection('certs');
+    this.certsLearningRef = this.db.collection('paths').doc(path).collection('certTypes').doc('Learning Videos').collection('certs');
     this.certsSpecialtyRef = this.db.collection('paths').doc(path).collection('certTypes').doc('Specialty').collection('certs');
     this.certsGeneralCollection$ = this.certsGeneralRef.valueChanges();
     this.certsManufacturingCollection$ = this.certsManufacturingRef.valueChanges();
@@ -136,8 +138,10 @@ export class HomeComponent implements OnInit {
     this.getManufacturingCerts();
     this.getSpecialtyCerts();
     this.currentPaths = false;
+    this.currentCertType = true;
 }
 selectPaths() {
     this.currentPaths = true;
+    this.currentCertType = false;
   }
 }

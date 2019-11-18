@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Animations } from './animations/animations';
 import { FirebaseApp } from '@angular/fire'; 
 
@@ -12,14 +12,17 @@ import { FirebaseApp } from '@angular/fire';
     Animations.animateMenuButton1,
     Animations.animateMenuButton2,
     Animations.animateMenuButton3,
-    Animations.animateCloseMenu
+    Animations.animateCloseMenu,
+    Animations.animateHero,
+    Animations.animateHero2
   ]
 })
-export class AppComponent {
+export class AppComponent  {
   title = 'training-new';
   currentState = 'state1';
   constructor(public fireapp: FirebaseApp){}
 
+  
   changeState() {
     this.currentState = this.currentState === 'state1' ? 'state2' : 'state1';
   }

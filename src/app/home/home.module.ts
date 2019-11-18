@@ -8,6 +8,9 @@ import { HomeComponent } from './home.component';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatIconRegistry } from '@angular/material/icon';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @NgModule({
     imports: [
@@ -15,6 +18,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
       NgxSpinnerModule,
       CommonModule,
       MaterialModule,
+      FlexLayoutModule,
       AngularFireAuthModule,
       AngularFirestoreModule,
       AngularFireDatabaseModule,
@@ -27,8 +31,11 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
     ],
     declarations: [
         HomeComponent
-        
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class HomeModule { }
+export class HomeModule {
+  constructor(matIconRegistry: MatIconRegistry, domSanitizer: DomSanitizer) {
+    matIconRegistry.addSvgIconSet(domSanitizer.bypassSecurityTrustResourceUrl('./assets/icons/mdi.svg'));
+  }
+ }

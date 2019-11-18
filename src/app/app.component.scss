@@ -39,12 +39,7 @@ span.menuLine {
     background: #FFFFFF;
 }
 
-.sidenav {
-    position: sticky !important;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    background: #0B2757;
+
     /* background: -moz-linear-gradient(-45deg, #003385 0%, #003385 58%, #000000 100%);
 background: -webkit-gradient(left top, right bottom, color-stop(0%, #003385), color-stop(58%, #003385), color-stop(100%, #000000));
 background: -webkit-linear-gradient(-45deg, #003385 0%, #003385 58%, #000000 100%);
@@ -52,7 +47,7 @@ background: -o-linear-gradient(-45deg, #003385 0%, #003385 58%, #000000 100%);
 background: -ms-linear-gradient(-45deg, #003385 0%, #003385 58%, #000000 100%);
 background: linear-gradient(135deg, #003385 0%, #003385 58%, #000000 100%);
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#003385', endColorstr='#000000', GradientType=1 ); */
-}
+
 
 button.menu {
     border: 0;
@@ -94,9 +89,8 @@ a.sidenav_button {
 }
 
 mat-sidenav-content {
-    overflow: auto;
+    overflow: scroll;
     position: relative;
-    top: -100px;
     background: white;
 }
 
@@ -156,4 +150,12 @@ li {
     display: flex;
     align-items: center;
     line-height: 24px;
+}
+mat-sidenav {
+    visibility: visible;
+    width: 75px;
+    transform: scale(1);
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
 }
