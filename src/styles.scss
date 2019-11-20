@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,500,600,700&display=swap');
 html,
 body {
     height: 100%;
@@ -9,11 +10,13 @@ body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
 .material-icons {
     font-family: 'Material Icons';
     font-weight: normal;
     font-style: normal;
-    font-size: 24px;  /* Preferred icon size */
+    font-size: 24px;
+    /* Preferred icon size */
     display: inline-block;
     line-height: 1;
     text-transform: none;
@@ -22,6 +25,7 @@ body {
     white-space: nowrap;
     direction: ltr;
 }
+
 .dark-primary-color {
     background: #001a46;
 }

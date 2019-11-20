@@ -40,14 +40,13 @@ span.menuLine {
 }
 
 
-    /* background: -moz-linear-gradient(-45deg, #003385 0%, #003385 58%, #000000 100%);
+/* background: -moz-linear-gradient(-45deg, #003385 0%, #003385 58%, #000000 100%);
 background: -webkit-gradient(left top, right bottom, color-stop(0%, #003385), color-stop(58%, #003385), color-stop(100%, #000000));
 background: -webkit-linear-gradient(-45deg, #003385 0%, #003385 58%, #000000 100%);
 background: -o-linear-gradient(-45deg, #003385 0%, #003385 58%, #000000 100%);
 background: -ms-linear-gradient(-45deg, #003385 0%, #003385 58%, #000000 100%);
 background: linear-gradient(135deg, #003385 0%, #003385 58%, #000000 100%);
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#003385', endColorstr='#000000', GradientType=1 ); */
-
 
 button.menu {
     border: 0;
@@ -151,6 +150,7 @@ li {
     align-items: center;
     line-height: 24px;
 }
+
 mat-sidenav {
     visibility: visible;
     width: 75px;
@@ -158,4 +158,11 @@ mat-sidenav {
     position: fixed;
     top: 0px;
     bottom: 0px;
+}
+
+mat-sidenav-content {
+    margin: 0px 0px 0px 75px;
+    transform: scale(1);
+    overflow: visible;
+    padding-bottom: 60px;
 }

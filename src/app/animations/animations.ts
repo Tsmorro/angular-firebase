@@ -10,7 +10,7 @@ export const Animations = {
           transform: 'scale(1)'
         })),
         state('state2', style({
-          width: '300px',
+          width: '270px',
           transform: 'scale(1)'
         })),
         transition('*=>state1', animate('300ms')),
@@ -22,7 +22,7 @@ export const Animations = {
           transform: 'scale(1)'
         })),
         state('state2', style({
-          margin: '0 0 0 300px',
+          margin: '0 0 0 270px',
           transform: 'scale(1)'
         })),
         transition('*=>state1', animate('300ms')),
@@ -76,8 +76,8 @@ export const Animations = {
           transition('*=>state2', animate('1ms'))
       ]),
       animateHero: trigger('flyUpDown', [
-        state('down', style({ bottom: '20px' })),
-        state('up', style({ bottom: '300px' })),
+        state('down', style({ opacity: '100%' })),
+        state('up', style({ opacity: '0%' })),
         transition('* => up',
           animate('500ms')),
         transition('* => down',

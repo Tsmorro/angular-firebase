@@ -1,6 +1,6 @@
 import { TrainingService } from './../services/training.service';
 import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Animations } from '../animations/animations';
 import { Path, CertType, Cert } from '../interfaces/interfaces';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
@@ -25,7 +25,7 @@ import { Observable } from 'rxjs';
 
   ]
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit,AfterViewInit {
   generalCert: any;
   generalCerts: null;
   manufacturingCert: any;
@@ -59,7 +59,7 @@ export class HomeComponent implements OnInit {
   certTypesDoc$: Observable<any>;
   currentState = '';
   currentShown = '';
-  currentPaths = true;
+  currentPaths = false;
   currentCertType = false;
   portalText = '';
   pathHero = '';
@@ -72,6 +72,9 @@ export class HomeComponent implements OnInit {
     console.log(this.paths);
     console.log(this.generalCerts);
     console.log(this.certTypes);
+  }
+  ngAfterViewInit(){
+    this.selectPaths();
   }
   getPaths() {
     this.pathsCollection$.subscribe(data => {

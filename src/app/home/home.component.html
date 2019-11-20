@@ -1,92 +1,67 @@
 <header class="headdisplay mat-elevation-z4">
-  <a mat-icon-button href="/login" class="login">
-    <i class="material-icon">login</i>Admin Login</a>
-  <img class="hero" src="../../assets/hero.png" />
-  <img
-    [@flyUpDown]="portalText"
-    class="portal"
-    src="../../assets/LearningPortal.png"
-  />
-  <img [@flyInOut]="pathHero" class="pathTitle" src="{{ pathImg }}" />
+    <a mat-icon-button href="/login" class="login">
+        <i class="material-icon">login</i>Admin Login</a>
+    <img class="hero" src="../../assets/hero.png" />
+    <img [@flyUpDown]="portalText" class="portal" src="../../assets/LearningPortal.png" />
+    <img [@flyInOut]="pathHero" class="pathTitle" src="{{ pathImg }}" />
 </header>
 <div *ngIf="currentPaths" class="page">
-  <div class="bodydisplay container" fxLayout="row" fxLayoutAlign="space-around start" >
-    <!-- <mat-grid-list cols="12" rowHeight="40px" [gutterSize]="'40px'">
+    <div class="bodydisplay" fxLayout="row" fxLayoutAlign="space-around start">
+        <!-- <mat-grid-list cols="12" rowHeight="40px" [gutterSize]="'40px'">
       <mat-grid-tile class="text" [colspan]="4" [rowspan]="8"> -->
-          <div class="text" fxLayout="column" fxFlex="50">
-        <img class="logo" src="../../assets/MIMlogo2.png" />
+        <div class="text" fxLayout="column" fxFlex="45">
+            <img class="logo" src="../../assets/MIMlogo2.png" />
 
-        <p class="primary-text-color">
-          All New Hires are required to take and successfully pass a series of
-          pre-employment certifications before they may begin work at Material
-          In Motion. <br />
-          <br />
-          Before we begin...<br />
-        </p>
+            <p class="primary-text-color">
+                All New Hires are required to take and successfully pass a series of pre-employment certifications before they may begin work at Material In Motion. <br />
+                <br /> Before we begin...<br />
+            </p>
 
-        <br />
-        <blockquote class="primary-text-color">
-          <strong>1.</strong> Select your Learning Path on the right of the
-          screen<br />
-          <br />
-          <strong>2.</strong> Review your Certifications Guidelines. These
-          intructions will appear in this section for each Learning Path<br />
-          <br />
-          <strong>3.</strong> There is a time limit set for each learning path.
-          You must complete the training within the set time frame<br />
-          <br />
-          <strong>4.</strong> Click “Check Your Scores” at any time to view your
-          results for each test
-        </blockquote>
-        <br />
-        <br />
-        <p class="primary-text-color">
-          Please see a member of staff if you have problems with the
-          certifications. Let’s get started!
-        </p>
-    </div>
-      <!-- </mat-grid-tile> -->
-      <!-- <mat-grid-tile [colspan]="1" [rowspan]="8">
+            <br />
+            <blockquote class="primary-text-color">
+                <strong>1.</strong> Select your Learning Path on the right of the screen
+                <br />
+                <br />
+                <strong>2.</strong> Review your Certifications Guidelines. These intructions will appear in this section for each Learning Path<br />
+                <br />
+                <strong>3.</strong> There is a time limit set for each learning path. You must complete the training within the set time frame<br />
+                <br />
+                <strong>4.</strong> Click “Check Your Scores” at any time to view your results for each test
+            </blockquote>
+            <br />
+            <br />
+            <p class="primary-text-color">
+                Please see a member of staff if you have problems with the certifications. Let’s get started!
+            </p>
+        </div>
+        <!-- </mat-grid-tile> -->
+        <!-- <mat-grid-tile [colspan]="1" [rowspan]="8">
         &nbsp;
       </mat-grid-tile> -->
-      <div fxLayout="row" fxFlex="45" fxLayoutAlign="center start">
-            <mat-card
-            class="container pathCard mat-elevation-z4"
-            style="background: white;"
-          >
-          <div class="innerCard" fxLayout="column" fxLayoutAlign="start start">
+        <div fxLayout="row" fxFlex="60" fxLayoutAlign="center start">
+            <div class="innerCard" fxLayout="column" fxLayoutAlign="start start">
 
-          <mat-card-header>
-           <h2 style="color:black;" class="selectPath">Select your Learning Path:</h2>
-        </mat-card-header>
-          <div fxLayout="row wrap" class="paths"  fxLayoutAlign="space-around flex-start"> 
+                <mat-card-header>
+                    <h2 style="color:black;" class="selectPath">Select your Learning Path:</h2>
+                </mat-card-header>
+                <div fxLayout="row wrap" class="paths" fxLayoutAlign="space-around flex-start">
 
-          <div class="pathGrid" *ngFor="let path of paths" >
-        <mat-card
-        fx-fill
-          class="pathTiles"
-          (click)="selectPath(path.name)"
-          (click)="pathImage(path.img)"
-          [ngValue]="path"
-          (click)="upDown()"
-          (click)="inOut()"
-          
-        >
-          <img class="tileImgs" src="{{ path.img }}" />
-        </mat-card>
-      </div>
+                    <div class="pathGrid" *ngFor="let path of paths">
+                        <mat-card fx-fill class="pathTiles" (click)="selectPath(path.name)" (click)="pathImage(path.img)" [ngValue]="path" (click)="upDown()" (click)="inOut()">
+                            <h1 class="tileImgs">{{ path.name }}</h1>
+                        </mat-card>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <!-- </mat-grid-list> -->
     </div>
 </div>
-    </mat-card>
-    
-   
-</div>
-    <!-- </mat-grid-list> -->
-  </div>
-</div>
-<div *ngIf="currentCertType">
-  <div class="bodydisplay2">
-      <!-- <div fxLayout="row" fxLayoutAlign="center end">
+<div *ngIf="currentCertType" class='page'>
+    <div class="bodydisplay2">
+        <!-- <div fxLayout="row" fxLayoutAlign="center end">
         <button
         mat-icon-button
         (click)="selectPaths()"
@@ -96,106 +71,115 @@
         <mat-icon svgIcon="arrow-left"></mat-icon>Back to Learning Paths
       </button>
     </div> -->
-    <div fxLayout="row">
-      <div fxFlex="50%" fxLayout="column" fxAlign="center">
-        <!-- <mat-grid-list cols="12" rowHeight="40px" [gutterSize]="'40px'">
-
+        <div fxLayout="row" fxLayoutAlign="flex-start center">
+            <button mat-icon-button class="backhome" (click)="selectPaths()" (click)="upDown()" (click)="inOut()">
+                <img src="../../assets/icons/baseline_arrow_back_ios_black_18dp.png"> Back to Learning Portal</button>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex="45%" class="certTypeBody" fxLayout="column" fxAlign="center">
+                <!-- <mat-grid-list cols="12" rowHeight="40px" [gutterSize]="'40px'">
+                    <div 
             <mat-grid-tile class="text" [colspan]="4" [rowspan]="8"> -->
-        <img class="logo" src="../../assets/MIMlogo2.png" />
+                <img class="logo" src="../../assets/MIMlogo2.png" />
 
-        <p class="primary-text-color"> All New Hires are required to take and successfully pass a series of pre-employment certifications before they may begin work at Material In Motion. <br>
-            <br> <strong>Certification Guidelines:</strong><br></p>
-        <br>
-        <blockquote class="primary-text-color"><strong>1.</strong> Candidates must complete all certifications within three hours
-            <br>
-            <br> <strong>2.</strong>Candidates may take notes; however, may not talk to other persons taking certifications
-            <br>
-            <br> <strong>3.</strong> Candidates are permitted to take each certification up to 3 times
-            <br><br><strong>&nbsp;&nbsp;[Failure to successfully pass the certification within three tries, will prevent the candidate from working at Material In Motion]</strong>
-        </blockquote><br>
-        <br>
-        <p class="primary-text-color">Candidates can review their results by clicking on “View Test Details” at the bottom right of their screens once they have completed their quiz.<br> If you see the prompt, “Would you like to Resume?” you <strong>MUST</strong> click "NO"
-            to continue to your quiz. Results will not be registered to you otherwise
+                <p class="primary-text-color"> All New Hires are required to take and successfully pass a series of pre-employment certifications before they may begin work at Material In Motion. <br>
+                    <br> <strong>Certification Guidelines:</strong><br></p>
+                <br>
+                <blockquote class="primary-text-color"><strong>1.</strong> Candidates must complete all certifications within three hours
+                    <br>
+                    <br> <strong>2.</strong>Candidates may take notes; however, may not talk to other persons taking certifications
+                    <br>
+                    <br> <strong>3.</strong> Candidates are permitted to take each certification up to 3 times
+                    <br><br><strong>&nbsp;&nbsp;[Failure to successfully pass the certification within three tries, will prevent the candidate from working at Material In Motion]</strong>
+                </blockquote><br>
+                <br>
+                <p class="primary-text-color">Candidates can review their results by clicking on “View Test Details” at the bottom right of their screens once they have completed their quiz.<br> If you see the prompt, “Would you like to Resume?” you <strong>MUST</strong> click "NO"
+                    to continue to your quiz. Results will not be registered to you otherwise
 
-            <br><strong><br>Any HR personnel reserves the right to send you home if found using a cellular device at your computer
+                    <br><strong><br>Any HR personnel reserves the right to send you home if found using a cellular device at your computer
             </strong><br></p>
-      </div>
-      <!-- </mat-grid-tile> -->
+            </div>
+            <!-- </mat-grid-tile> -->
+            <div fxLayout="column" fxFlex="10%">
+                &nbsp;
+            </div>
+            <div fxLayout="column" fxFlex="45%" class="certGrid">
 
-      <div fxLayout="row wrap" fxFlex="50%" style="padding-left: 30px;" class="certGrid">
-        
-        
 
-            <!-- <mat-grid-tile class="certs" [colspan]="4" [rowspan]="6"> -->
-              <mat-card
-                class="certTypeTiles mat-elevation-z4"
-                style="background: white;"
-              >
-              <mat-list>
+
+                <!-- <mat-grid-tile class="certs" [colspan]="4" [rowspan]="6"> -->
+                <mat-list>
                     <div *ngIf="generalCerts">
-                    <h3 matSubheader>General Training</h3>
-                    <mat-list-item class="certItem" *ngFor="let generalCert of generalCerts">
-                       
-                                    <a  class="certButton mat-elevation-z2" href="{{ generalCert.link }}">
-                                     <strong> {{ generalCert.module }}</strong> &nbsp;|&nbsp;
-                                    <!-- </a>
-                                    <a class="certLink" href="{{ generalCert.link }}"> -->
-                                        {{ generalCert.topic }}</a>
-                              
-                    </mat-list-item>
-               
+                        <h2 style="color:black;" class="selectPath">General Certifications</h2>
+                        <mat-list-item class="certItem" *ngFor="let generalCert of generalCerts">
 
-                    <mat-divider></mat-divider>
-                </div>
-                <div *ngIf="manufacturingCerts">
-                        <h3 matSubheader>Manufacturing Modules</h3>
-                        <mat-list-item class="certItem" *ngFor="let manufacturingCert of manufacturingCerts">
-                           
-                                <a class="certButton mat-elevation-z2" href="{{ manufacturingCert.link }}">
-                                         <strong>{{ manufacturingCert.module }}</strong>  &nbsp;|&nbsp;
-                                        <!-- </button>
-                                        <a class="certLink" > -->
-                                            {{ manufacturingCert.topic }}</a>
-                                  
+                            <a class="certButton mat-elevation-z4" href="{{ generalCert.link }}">
+                                <strong> {{ generalCert.module }}</strong> &nbsp;|&nbsp;
+                                <!-- </a>
+                                    <a class="certLink" href="{{ generalCert.link }}"> -->
+                                {{ generalCert.topic }}</a>
+
                         </mat-list-item>
-                        
-                        
-                        <mat-divider></mat-divider>
+
+
+
+                    </div>
+
+                    <!--            <div *ngIf="learningCerts">
+                            <h3 matSubheader>Learning Videos</h3>
+                            <mat-list-item class="certItem" *ngFor="let learningCert of learningCerts">
+
+                                <a class="certButton mat-elevation-z2" href="{{ learningCert.link }}">
+                                    <strong>{{ learningCert.module }}</strong> &nbsp;|&nbsp;
+                                    </a>
+                                               <a class="certLink" > -->
+                    <!--    {{ learningCert.topic }}</a> -->
+
+                    <!--     </mat-list-item>
+
+
+                            <mat-divider></mat-divider>
+                        </div> -->
+
+                </mat-list>
+            </div>
+            <!--    <div fxLayout="row wrap" fxFlex="30%" class="certGrid">
+                <mat-card class="certTypeTiles mat-elevation-z4" style="background: white;">
+                    <mat-list>
+                        <div *ngIf="manufacturingCerts">
+
+                            <h3 matSubheader>Manufacturing Modules</h3>
+                            <mat-list-item class="certItem" *ngFor="let manufacturingCert of manufacturingCerts">
+
+                                <a class="certButton mat-elevation-z2" href="{{ manufacturingCert.link }}">
+                                    <strong>{{ manufacturingCert.module }}</strong> &nbsp;|&nbsp;
+                                     </button>
+                                    <a class="certLink" > -->
+            <!--  {{ manufacturingCert.topic }}</a>
+
+                            </mat-list-item>
+
+
+                            <mat-divider></mat-divider>
                         </div>
                         <div *ngIf="specialtyCerts">
-                                <h3 matSubheader>Specialty Modules</h3>
-                                <mat-list-item class="certItem" *ngFor="let specialtyCert of specialtyCerts">
-                                   
-                                        <a class="certButton mat-elevation-z2"   href="{{ specialtyCert.link }}">
-                                                <strong>{{ specialtyCert.module }}</strong>  &nbsp;|&nbsp;
-                                               <!-- </button>
-                                               <a class="certLink" > -->
-                                                   {{ specialtyCert.topic }}</a>
-                                          
-                                </mat-list-item>
-                                
-                                
-                                <mat-divider></mat-divider>
-                                </div>
-                        <div *ngIf="learningCerts">
-                                <h3 matSubheader>Learning Videos</h3>
-                                <mat-list-item class="certItem" *ngFor="let learningCert of learningCerts">
-                                   
-                                        <a class="certButton mat-elevation-z2"   href="{{ learningCert.link }}">
-                                                <strong>{{ learningCert.module }}</strong>  &nbsp;|&nbsp;
-                                               <!-- </button>
-                                               <a class="certLink" > -->
-                                                   {{ learningCert.topic }}</a>
-                                          
-                                </mat-list-item>
-                                
-                                
-                                <mat-divider></mat-divider>
-                                </div> 
-                    
-                 </mat-list>
-              </mat-card>
-                <!-- <mat-card-title>
+                            <h3 matSubheader>Specialty Modules</h3>
+                            <mat-list-item class="certItem" *ngFor="let specialtyCert of specialtyCerts">
+
+                                <a class="certButton mat-elevation-z2" href="{{ specialtyCert.link }}">
+                                    <strong>{{ specialtyCert.module }}</strong> &nbsp;|&nbsp; -->
+            <!-- </button>
+                                           <a class="certLink" > -->
+            <!--  {{ specialtyCert.topic }}</a>
+
+                            </mat-list-item>
+
+
+                            <mat-divider></mat-divider>
+                        </div> -->
+            <!--    </mat-list>
+                </mat-card> -->
+            <!-- <mat-card-title>
                   <h3>General Topics</h3>
                 </mat-card-title>
                 <mat-card-content>
@@ -295,12 +279,11 @@
               </mat-card>
             </div> -->
             <!-- </mat-grid-tile> -->
-         
-        <!-- <mat-grid-tile class="back" [colspan]="6" [rowspan]="1">
+
+            <!-- <mat-grid-tile class="back" [colspan]="6" [rowspan]="1">
                     &nbsp;
                 </mat-grid-tile> -->
-      </div>
+        </div>
     </div>
     <!-- </mat-grid-list> -->
-  </div>
 </div>
