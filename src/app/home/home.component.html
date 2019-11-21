@@ -3,7 +3,9 @@
         <i class="material-icon">login</i>Admin Login</a>
     <img class="hero" src="../../assets/hero.png" />
     <img [@flyUpDown]="portalText" class="portal" src="../../assets/LearningPortal.png" />
-    <img [@flyInOut]="pathHero" class="pathTitle" src="{{ pathImg }}" />
+    <div *ngIf="currentCertType">
+        <h1 [@flyInOut]="pathHero" class="pathTitle">{{pathName}} Learning Path</h1>
+    </div>
 </header>
 <div *ngIf="currentPaths" class="page">
     <div class="bodydisplay" fxLayout="row" fxLayoutAlign="space-around start">
@@ -22,11 +24,11 @@
                 <strong>1.</strong> Select your Learning Path on the right of the screen
                 <br />
                 <br />
-                <strong>2.</strong> Review your Certifications Guidelines. These intructions will appear in this section for each Learning Path<br />
+                <strong>2.</strong> Review the <strong>Certifications Guidelines</strong>. These intructions will appear in this section for each Learning Path<br />
                 <br />
                 <strong>3.</strong> There is a time limit set for each learning path. You must complete the training within the set time frame<br />
                 <br />
-                <strong>4.</strong> Click “Check Your Scores” at any time to view your results for each test
+                <strong>4.</strong> Click <strong>“Results”</strong> at any time in the sidebar menu to view your results for each test
             </blockquote>
             <br />
             <br />
@@ -47,7 +49,7 @@
                 <div fxLayout="row wrap" class="paths" fxLayoutAlign="space-around flex-start">
 
                     <div class="pathGrid" *ngFor="let path of paths">
-                        <mat-card fx-fill class="pathTiles" (click)="selectPath(path.name)" (click)="pathImage(path.img)" [ngValue]="path" (click)="upDown()" (click)="inOut()">
+                        <mat-card fx-fill class="pathTiles" (click)="selectPath(path)" (click)="pathImage(path.img)" [ngValue]="path" (click)="upDown()" (click)="inOut()">
                             <h1 class="tileImgs">{{ path.name }}</h1>
                         </mat-card>
                     </div>
@@ -71,7 +73,7 @@
         <mat-icon svgIcon="arrow-left"></mat-icon>Back to Learning Paths
       </button>
     </div> -->
-        <div fxLayout="row" fxLayoutAlign="flex-start center">
+        <div fxLayout="row" fxLayoutAlign="center center" class="backbutton">
             <button mat-icon-button class="backhome" (click)="selectPaths()" (click)="upDown()" (click)="inOut()">
                 <img src="../../assets/icons/baseline_arrow_back_ios_black_18dp.png"> Back to Learning Portal</button>
         </div>
@@ -103,7 +105,7 @@
             <div fxLayout="column" fxFlex="10%">
                 &nbsp;
             </div>
-            <div fxLayout="column" fxFlex="45%" class="certGrid">
+            <div fxLayout="column" fxFlex="35%" class="certGrid">
 
 
 
@@ -114,7 +116,7 @@
                         <mat-list-item class="certItem" *ngFor="let generalCert of generalCerts">
 
                             <a class="certButton mat-elevation-z4" href="{{ generalCert.link }}">
-                                <strong> {{ generalCert.module }}</strong> &nbsp;|&nbsp;
+                                <strong class="module"> {{ generalCert.module }}</strong> &nbsp;|&nbsp;
                                 <!-- </a>
                                     <a class="certLink" href="{{ generalCert.link }}"> -->
                                 {{ generalCert.topic }}</a>
@@ -125,21 +127,42 @@
 
                     </div>
 
-                    <!--            <div *ngIf="learningCerts">
-                            <h3 matSubheader>Learning Videos</h3>
-                            <mat-list-item class="certItem" *ngFor="let learningCert of learningCerts">
+                    <div *ngIf="manufacturingCerts">
 
-                                <a class="certButton mat-elevation-z2" href="{{ learningCert.link }}">
-                                    <strong>{{ learningCert.module }}</strong> &nbsp;|&nbsp;
-                                    </a>
-                                               <a class="certLink" > -->
-                    <!--    {{ learningCert.topic }}</a> -->
+                        <h2 class="selectPath">Manufacturing Certifications</h2>
+                        <mat-list-item class="certItem" *ngFor="let manufacturingCert of manufacturingCerts">
 
-                    <!--     </mat-list-item>
+                            <a class="certButton mat-elevation-z4" href="{{ manufacturingCert.link }}">
+                                <strong class="module">{{ manufacturingCert.module }}</strong> &nbsp;|&nbsp; {{ manufacturingCert.topic }}</a>
+
+                        </mat-list-item>
 
 
-                            <mat-divider></mat-divider>
-                        </div> -->
+                    </div>
+                    <div *ngIf="specialtyCerts">
+                        <h2 class="selectPath">Specialty Certifications</h2>
+                        <mat-list-item class="certItem" *ngFor="let specialtyCert of specialtyCerts">
+
+                            <a class="certButton mat-elevation-z4" href="{{ specialtyCert.link }}">
+                                <strong class="module">{{ specialtyCert.module }}</strong> &nbsp;|&nbsp; {{ specialtyCert.topic }}</a>
+
+                        </mat-list-item>
+
+
+
+                    </div>
+                    <div *ngIf="learningCerts">
+                        <h2 class="selectPath">Learning Videos</h2>
+                        <mat-list-item class="certItem" *ngFor="let learningCert of learningCerts">
+
+                            <a class="certButton mat-elevation-z4" href="{{ learningCert.link }}">
+                                <strong class="module">{{ learningCert.module }}</strong> &nbsp;|&nbsp; {{ learningCert.topic }}</a>
+
+                        </mat-list-item>
+
+
+
+                    </div>
 
                 </mat-list>
             </div>

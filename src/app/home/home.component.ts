@@ -63,6 +63,7 @@ export class HomeComponent implements OnInit,AfterViewInit {
   currentCertType = false;
   portalText = '';
   pathHero = '';
+  pathName = '';
   ngOnInit() {
     this.currentState = 'state1';
     this.currentShown = 'paths';
@@ -80,13 +81,11 @@ export class HomeComponent implements OnInit,AfterViewInit {
     this.pathsCollection$.subscribe(data => {
        console.log(data);
        this.paths = data;
+       console.log(this.paths)
        return data; });
     }
-    getGeneralCerts() {
-      this.certsGeneralCollection$.subscribe(data => {
-         console.log(data);
-         this.generalCerts = data;
-         return data; });
+    getGeneralCerts(path) {
+      this.generalCerts = path.certTypes[0].certs;
       }
       getManufacturingCerts() {
         this.certsManufacturingCollection$.subscribe(data => {
@@ -109,11 +108,9 @@ export class HomeComponent implements OnInit,AfterViewInit {
       pathImage(path){
         this.pathImg = path;
       }
-      getCertTypes() {
-        this.certTypeCollection$.subscribe(data => {
-           console.log(data);
-           this.certTypes = data;
-           return data; });
+      getCertTypes(path) {
+        this.certTypes = path.certTypes;
+        console.log(this.certTypes);
           }
   changeState() {
     this.currentState = this.currentState === 'state1' ? 'state2' : 'state1';
@@ -125,21 +122,11 @@ export class HomeComponent implements OnInit,AfterViewInit {
     this.pathHero = this.pathHero === 'out' ? 'in' : 'out';
   }
   selectPath(path) {
-    this.certTypesRef = this.db.collection('paths').doc(path).collection('certTypes');
-    this.certTypeCollection$ = this.certTypesRef.valueChanges();
-    this.getCertTypes();
-    this.certsGeneralRef = this.db.collection('paths').doc(path).collection('certTypes').doc('General').collection('certs');
-    this.certsManufacturingRef = this.db.collection('paths').doc(path).collection('certTypes').doc('Manufacturing').collection('certs');
-    this.certsLearningRef = this.db.collection('paths').doc(path).collection('certTypes').doc('Learning Videos').collection('certs');
-    this.certsSpecialtyRef = this.db.collection('paths').doc(path).collection('certTypes').doc('Specialty').collection('certs');
-    this.certsGeneralCollection$ = this.certsGeneralRef.valueChanges();
-    this.certsManufacturingCollection$ = this.certsManufacturingRef.valueChanges();
-    this.certsLearningCollection$ = this.certsLearningRef.valueChanges();
-    this.certsSpecialtyCollection$ = this.certsSpecialtyRef.valueChanges();
-    this.getGeneralCerts();
-    this.getLearningCerts();
-    this.getManufacturingCerts();
-    this.getSpecialtyCerts();
+    this.certTypes = path.certTypes;
+    this.pathName = path.name;
+    this.generalCerts = path.certTypes[0].certs;
+    this.manufacturingCerts = path.certTypes[1].certs;
+   /*  this.specialtyCerts = path.certTypes[2].certs; */
     this.currentPaths = false;
     this.currentCertType = true;
 }

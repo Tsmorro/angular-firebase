@@ -84,8 +84,8 @@ export const Animations = {
           animate('1000ms'))
       ]),
       animateHero2: trigger('flyInOut', [
-        state('in', style({ left: '75px'})),
-        state('out', style({ left: '-250px' })),
+        state('in', style({ margin: '0px'})),
+        state('out', style({ margin: '0 0 0 -1000px' })),
         transition('* => out', 
           animate('500ms')
         ),
